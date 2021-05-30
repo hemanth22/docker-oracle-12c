@@ -1,12 +1,7 @@
 Oracle Standard Edition 12c Release 2
 ============================
 
-[![](https://badge.imagelayers.io/quay.io/maksymbilenko/oracle-12c:latest.svg)](https://imagelayers.io/?images=quay.io/maksymbilenko/oracle-12c:latest 'Get your own badge on imagelayers.io')
-
-Oracle Standard Edition 12c Release 2 on Ubuntu
-This **Dockerfile** is a [trusted build](https://registry.hub.docker.com/u/quay.io/maksymbilenko/oracle-12c/) of [Docker Registry](https://registry.hub.docker.com/).
-
-[![asciicast](https://asciinema.org/a/45878.png)](https://asciinema.org/a/45878)
+[![Docker Repository on Quay](https://quay.io/repository/maksymbilenko/oracle-12c/status "Docker Repository on Quay")](https://quay.io/repository/maksymbilenko/oracle-12c)
 
 ### Installation
 
@@ -22,7 +17,7 @@ Run with data on host and reuse it:
 
 Run with Custom DBCA_TOTAL_MEMORY (in Mb):
 
-    docker run -d -p 8080:8080 -p 1521:1521 -v /my/oracle/data:/u01/app/oracle -e DBCA_TOTAL_MEMORY=1024 quay.io/maksymbilenko/oracle-12c
+    docker run -d -p 8080:8080 -p 1521:1521 -v /my/oracle/data:/u01/app/oracle -e DBCA_TOTAL_MEMORY=4096 quay.io/maksymbilenko/oracle-12c
 
 Connect database with following setting:
 
@@ -52,7 +47,7 @@ Connect to Oracle Application Express web management console with following sett
 
 Apex upgrade up to v 5.*
 
-    docker run -it --rm --volumes-from ${DB_CONTAINER_NAME} --link ${DB_CONTAINER_NAME}:oracle-database -e PASS=YourSYSPASS sath89/apex install
+    docker run -it --rm --volumes-from ${DB_CONTAINER_NAME} --link ${DB_CONTAINER_NAME}:oracle-database -e PASS=YourSYSPASS quay.io/maksymbilenko/docker-oracle-apex install
 Details could be found here: https://github.com/MaksymBilenko/docker-oracle-apex
 
 Connect to Oracle Enterprise Management console with following settings:
